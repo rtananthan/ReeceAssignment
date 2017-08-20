@@ -13,9 +13,7 @@ public interface GenericDAO<T> {
 
     public void save(final T entity);
 
-    public void update(final T entity);
-
-    public void delete(final T entity);
+    public Boolean delete(final T entity);
 
     public Optional<T> get(final Serializable id);
 }
