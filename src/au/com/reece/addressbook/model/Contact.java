@@ -6,11 +6,9 @@ import java.util.Objects;
 /**
  * Created by Ananthan on 20/8/17.
  */
-public class Contact implements Serializable {
+public class Contact extends BaseEntity {
 
-    private Integer contactId;
-
-    private Integer addressBookId;
+    private AddressBook addressBook;
 
     private String firstName;
 
@@ -27,25 +25,42 @@ public class Contact implements Serializable {
     }
 
 
-    public Integer getContactId() {
-        return contactId;
+    public AddressBook getAddressBook() {
+        return addressBook;
     }
 
-    public void setContactId(Integer contactId) {
-        this.contactId = contactId;
+    public void setAddressBook(AddressBook addressBook) {
+        this.addressBook = addressBook;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getPhoneNo() {
+        return phoneNo;
+    }
+
+    public void setPhoneNo(String phoneNo) {
+        this.phoneNo = phoneNo;
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
         Contact contact = (Contact) o;
-        return Objects.equals(contactId, contact.contactId) &&
-                Objects.equals(addressBookId, contact.addressBookId);
+        return Objects.equals(getId(), contact.getId());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(contactId, addressBookId);
+        return Objects.hash(getId());
     }
 }

@@ -11,7 +11,7 @@ public interface GenericDAO<T> {
 
     public Stream<T> findAll();
 
-    public void save(final T entity);
+    public Boolean save(final T entity);
 
     public Boolean delete(final T entity);
 

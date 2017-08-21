@@ -6,30 +6,31 @@ import java.util.Objects;
 /**
  * Created by Ananthan on 20/8/17.
  */
-public class AddressBook  implements Serializable{
-
-    private Integer addressBookId;
+public class AddressBook  extends BaseEntity {
 
     private String addressBookName;
 
-    public Integer getAddressBookId() {
-        return addressBookId;
+    public String getAddressBookName() {
+        return addressBookName;
     }
 
-    public void setAddressBookId(Integer addressBookId) {
-        this.addressBookId = addressBookId;
+    public void setAddressBookName(String addressBookName) {
+        this.addressBookName = addressBookName;
     }
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o)
+            return true;
+        if (!(o instanceof AddressBook))
+            return false;
         AddressBook that = (AddressBook) o;
-        return Objects.equals(addressBookId, that.addressBookId);
+        return Objects.equals(getId(), that.getId());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(addressBookId);
+        return Objects.hash(getId());
     }
+
 }
