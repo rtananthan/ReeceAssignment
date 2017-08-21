@@ -1,4 +1,4 @@
-package au.com.reece.addressbook.model;
+package au.com.reece.addressbook.au.com.reece.addressbook.dao;
 
 import java.io.Serializable;
 import java.util.Optional;
