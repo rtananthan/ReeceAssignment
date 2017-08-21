@@ -27,6 +27,9 @@ public class App {
         testMultipleAddressBook();
         testCreateContact();
         testAddressBookNullNameTest();
+        testPrintUniqueContacts();
+        testPrintAllContactsInAddressBook();
+        testDeleteContact();
     }
 
     private void testMultipleAddressBook(){
@@ -109,12 +112,21 @@ public class App {
        contactService.printUniqueContacts();
     }
 
-    private void testAllContactsInAddressBook(){
-      //contactService.printAllContacts();
+    private void testPrintAllContactsInAddressBook(){
+      AddressBook addressBook  = (AddressBook) addressBookService.findAllAddressBooks().get(0);
+      contactService.printAllContacts(addressBook);
     }
 
     private void testDeleteContact(){
-
+      Contact contact = (Contact)contactService.findAll().get(0);
+      contactService.deleteContact(contact);
+      int size = contactService.findAll().size();
+        if(size== 2){
+            LOGGER.info("testDeleteContact Passed");
+        }
+        else{
+            LOGGER.info("testDeleteContact failed");
+        }
     }
 
 
